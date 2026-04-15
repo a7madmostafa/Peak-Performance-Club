@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Equipments</h1>
+    <ul>
+        {% if not equipments %} 
+            <li>No equipments found</li> 
+        {% endif %}
+        
+        {% for equipment in equipments %}
+            <li>{{ equipment.name }} - {{ equipment.branch.name }} - {{ equipment.purchase_date }} - ${{ equipment.price }} - {% if equipment.is_damaged %}Damaged{% else %}Good{% endif %}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

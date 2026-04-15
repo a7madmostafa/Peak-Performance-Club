@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Classes</h1>
+    <ul>
+        {% if not classes %} 
+            <li>No classes found</li> 
+        {% endif %}
+        
+        {% for class in classes %}
+            <li>{{ class.name }} - {{ class.trainer.name }} - {{ class.start_date }} - ${{ class.base_price }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

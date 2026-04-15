@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Members</h1>
+    <ul>
+        {% if not members %} 
+            <li>No members found</li> 
+        {% endif %}
+        
+        {% for member in members %}
+            <li>{{ member.name }} - {{ member.phone }} - {{ member.branch.name }} - ${{ member.balance }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

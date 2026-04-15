@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Trainers</h1>
+    <ul>
+        {% if not trainers %} 
+            <li>No trainers found</li> 
+        {% endif %}
+        
+        {% for trainer in trainers %}
+            <li>{{ trainer.name }} - {{ trainer.phone }} - {{ trainer.branch.name }} - {{ trainer.specialization }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
