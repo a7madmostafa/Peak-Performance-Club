@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Branches</title>
-</head>
-<body>
+{% extends "base.html" %}
+
+{% block content %}
     <h1>Branches</h1>
     <ul>
         {% if not branches %} 
@@ -15,7 +10,5 @@
         {% for branch in branches %}
             <li>{{ branch.name }} - {{ branch.location }} - {{ branch.contact }}</li>
         {% endfor %}
-    
     </ul>
-</body>
-</html>
+{% endblock %}
