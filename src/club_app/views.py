@@ -33,7 +33,8 @@ def trainers(request):
 
 def classes(request):
     context = {
-        "classes": GymClass.objects.all()
+        "classes": GymClass.objects.all(),
+        "trending_classes": GymClass.objects.trending(),    
     }
     return render(request, "classes.html", context)
 

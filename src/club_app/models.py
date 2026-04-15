@@ -59,3 +59,15 @@ class Equipment(BaseModel):
 
     def __str__(self):
         return self.name
+    
+
+class EquipmentManager(models.Manager):
+    def get_queryset(self) -> models.QuerySet:
+        return super().get_queryset().filter(is_damaged=True)
+    
+class DamagedEquipment(Equipment):
+    objects = EquipmentManager()
+
+    class Meta:
+        proxy = True
+        verbose_name = "Maintenance Alert"
