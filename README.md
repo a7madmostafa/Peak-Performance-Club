@@ -169,22 +169,14 @@ def early_bird_price(self):
     return self.base_price
 ```
 
----
-
-## 📸 Future Improvements
-
-* Authentication system (login/register)
-* Booking system for classes
-* Payment integration
-* Dashboard with analytics
-* REST API using Django REST Framework
-* Deployment (Railway / Render)
 
 ---
 
 ## 📚 Learning Purpose
 
-This project is part of a hands-on learning journey to understand how Django works in real-world scenarios, from database design to UI rendering.
+This project is part of a hands-on learning journey to understand how Django works in real-world scenarios, from database design to UI rendering. 
+
+I logged my steps in [Project_Steps.md](https://github.com/a7madmostafa/Peak-Performance-Club/blob/main/Project_Steps.md)
 
 ---
 
@@ -196,11 +188,6 @@ This project is part of a hands-on learning journey to understand how Django wor
 
 ---
 
-## ⭐ Contributing
-
-Feel free to fork the project and submit pull requests.
-
----
 
 ## 📄 License
 
