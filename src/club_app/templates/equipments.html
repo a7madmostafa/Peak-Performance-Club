@@ -1,14 +1,30 @@
 {% extends "base.html" %}
 
+{% block title %}Equipments{% endblock %}
+
 {% block content %}
-    <h1>Equipments</h1>
-    <ul>
-        {% if not equipments %} 
-            <li>No equipments found</li> 
-        {% endif %}
-        
-        {% for equipment in equipments %}
-            <li>{{ equipment.name }} - {{ equipment.branch.name }} - {{ equipment.purchase_date }} - ${{ equipment.price }} - {% if equipment.is_damaged %}Damaged{% else %}Good{% endif %}</li>
-        {% endfor %}
-    </ul>
+
+<h2>🏋️ Equipments</h2>
+<hr>
+<div class="row g-3 mt-2">
+
+    {% for e in equipments %}
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <h5>{{ e.name }}</h5>
+            <p>🏢 {{ e.branch.name }}</p>
+            <p>💰 {{ e.price }}</p>
+            <p>
+                {% if e.is_damaged %}
+                    ❌ Damaged
+                {% else %}
+                    ✅ Working
+                {% endif %}
+            </p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
 {% endblock %}

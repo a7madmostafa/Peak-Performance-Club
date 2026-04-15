@@ -1,14 +1,23 @@
 {% extends "base.html" %}
 
+{% block title %}Branches{% endblock %}
+
 {% block content %}
-    <h1>Branches</h1>
-    <ul>
-        {% if not branches %} 
-            <li>No branches found</li> 
-        {% endif %}
-        
-        {% for branch in branches %}
-            <li>{{ branch.name }} - {{ branch.location }} - {{ branch.contact }}</li>
-        {% endfor %}
-    </ul>
+
+<h2>🏢 Branches</h2>
+
+<div class="row g-3 mt-2">
+
+    {% for b in branches %}
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <h5>{{ b.name }}</h5>
+            <p>📍 {{ b.location }}</p>
+            <p>📞 {{ b.contact }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
 {% endblock %}

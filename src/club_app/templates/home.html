@@ -1,6 +1,66 @@
 {% extends "base.html" %}
 
+{% block title %}Home{% endblock %}
+
 {% block content %}
-    <h1>Welcome to Peak Performance Club</h1>
-    <p>Explore our branches, members, trainers, classes, and equipment!</p>
+
+<div class="text-center mb-5">
+    <h1>Peak Performance Club</h1>
+    <p class="text-muted">Choose a section to explore</p>
+</div>
+
+<div class="row g-4">
+
+    <!-- Members -->
+    <div class="col-md-4">
+        <a href="/members/" class="text-decoration-none">
+            <div class="card p-4 shadow-sm text-center">
+                <h3>👤 Members</h3>
+                <p class="text-muted">View all members</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Trainers -->
+    <div class="col-md-4">
+        <a href="/trainers/" class="text-decoration-none">
+            <div class="card p-4 shadow-sm text-center">
+                <h3>🏋️ Trainers</h3>
+                <p class="text-muted">Meet our trainers</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Classes -->
+    <div class="col-md-4">
+        <a href="/classes/" class="text-decoration-none">
+            <div class="card p-4 shadow-sm text-center">
+                <h3>🧘 Classes</h3>
+                <p class="text-muted">Join training sessions</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Branches -->
+    <div class="col-md-6">
+        <a href="/branches/" class="text-decoration-none">
+            <div class="card p-4 shadow-sm text-center">
+                <h3>🏢 Branches</h3>
+                <p class="text-muted">Find locations</p>
+            </div>
+        </a>
+    </div>
+
+    <!-- Equipments -->
+    <div class="col-md-6">
+        <a href="/equipments/" class="text-decoration-none">
+            <div class="card p-4 shadow-sm text-center">
+                <h3>🏋️ Equipments</h3>
+                <p class="text-muted">Explore gym equipment</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+
 {% endblock %}

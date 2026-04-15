@@ -1,14 +1,35 @@
 {% extends "base.html" %}
 
+{% block title %}Members{% endblock %}
+
 {% block content %}
-    <h1>Members</h1>
-    <ul>
-        {% if not members %} 
-            <li>No members found</li> 
-        {% endif %}
-        
-        {% for member in members %}
-            <li>{{ member.name }} - {{ member.phone }} - {{ member.branch.name }} - ${{ member.balance }}</li>
-        {% endfor %}
-    </ul>
-{% endblock %}
+
+<h2>👤 Members</h2>
+
+<div class="row g-3 mt-2">
+
+    {% for m in members %}
+        <div class="col-md-4">
+
+        <div class="card p-3 shadow-sm h-100">
+
+            <h5 class="d-flex justify-content-between align-items-center">
+                {{ m.name }}
+
+                {% if m.is_vip %}
+                    <span class="badge bg-warning text-dark">VIP</span>
+                {% endif %}
+            </h5>
+
+            <p>📞 {{ m.phone }}</p>
+            <p>🏢 {{ m.branch.name }}</p>
+            <p>💰 {{ m.balance }}</p>
+
+        </div>
+
+    </div>
+    {% endfor %}
+
+</div>
+
+{% endblock %}  

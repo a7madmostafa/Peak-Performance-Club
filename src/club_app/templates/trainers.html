@@ -1,14 +1,24 @@
 {% extends "base.html" %}
 
+{% block title %}Trainers{% endblock %}
+
 {% block content %}
-    <h1>Trainers</h1>
-    <ul>
-        {% if not trainers %} 
-            <li>No trainers found</li> 
-        {% endif %}
-        
-        {% for trainer in trainers %}
-            <li>{{ trainer.name }} - {{ trainer.phone }} - {{ trainer.branch.name }} - {{ trainer.specialization }}</li>
-        {% endfor %}
-    </ul>
+
+<h2>🏋️ Trainers</h2>
+
+<div class="row g-3 mt-2">
+
+    {% for t in trainers %}
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <h5>{{ t.name }}</h5>
+            <p>📞 {{ t.phone }}</p>
+            <p>🏢 {{ t.branch.name }}</p>
+            <p>🎯 {{ t.specialization }}</p>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+
 {% endblock %}

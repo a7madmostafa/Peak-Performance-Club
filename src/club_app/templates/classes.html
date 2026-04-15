@@ -1,14 +1,94 @@
 {% extends "base.html" %}
 
+{% block title %}Classes{% endblock %}
+
 {% block content %}
-    <h1>Classes</h1>
-    <ul>
-        {% if not classes %} 
-            <li>No classes found</li> 
-        {% endif %}
-        
-        {% for class in classes %}
-            <li>{{ class.name }} - {{ class.trainer.name }} - {{ class.start_date }} - ${{ class.base_price }}</li>
+
+<!-- 🔥 Trending Section -->
+<div class="mb-5">
+
+    <h2 class="mb-3">🔥 Trending Classes</h2>
+
+    <div class="row g-3">
+
+        {% for c in trending_classes %}
+        <div class="col-md-4">
+
+            <div class="card p-3 shadow-sm border-warning">
+
+                <h5>
+                    {{ c.name }}
+                    <span class="badge bg-warning text-dark">Trending</span>
+                </h5>
+
+                <p>🏋️ {{ c.trainer.name }}</p>
+                <p>👥 {{ c.members.count }} members</p>
+                <p>💰 {{ c.base_price }}</p>
+
+            </div>
+
+        </div>
+        {% empty %}
+        <p class="text-muted">No trending classes yet</p>
         {% endfor %}
-    </ul>
+
+    </div>
+
+</div>
+
+<hr>
+
+<!-- 🧘 All Classes -->
+<div>
+
+    <h2 class="mb-3">🧘 All Classes</h2>
+
+    <div class="row g-3">
+
+        {% for c in classes %}
+        <div class="col-md-4">
+
+            <div class="card p-3 shadow-sm h-100">
+
+                <h5>{{ c.name }}</h5>
+
+                <p>🏋️ Trainer: {{ c.trainer.name }}</p>
+                <p>📅 {{ c.start_date }}</p>
+
+                <!-- 💰 PRICE SECTION -->
+                <p>
+                    💰 Price:
+                    {% if c.early_bird_price != c.base_price %}
+                        <span class="text-success fw-bold">
+                            {{ c.early_bird_price }}
+                        </span>
+                        <del class="text-muted">{{ c.base_price }}</del>
+                        <span class="badge bg-success">Early Bird</span>
+                    {% else %}
+                        <span class="fw-bold">
+                            {{ c.base_price }}
+                        </span>
+                    {% endif %}
+                </p>
+
+                <p>
+                    👥 Members:
+                    <span class="badge bg-primary">
+                        {{ c.members.count }}
+                    </span>
+                </p>
+
+            </div>
+
+        </div>
+        {% endfor %}
+
+        {% if not classes %}
+        <p class="text-muted">No classes yet</p>
+        {% endif %}
+
+    </div>
+
+</div>
+
 {% endblock %}
