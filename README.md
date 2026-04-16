@@ -11,6 +11,13 @@ It demonstrates how to design scalable Django applications using models, views, 
 
 ---
 
+## 📚 Learning Purpose
+
+This project is part of a hands-on learning journey to understand how Django works in real-world scenarios, from database design to UI rendering. 
+
+I logged my steps in [Project_Steps.md](https://github.com/a7madmostafa/Peak-Performance-Club/blob/main/Project_Steps.md)
+
+---
 ## ✨ Features
 
 * 🏢 Manage gym **Branches**
@@ -139,20 +146,6 @@ python manage.py runserver
 | Equipment | `/equipments/` |
 | Admin     | `/admin/`      |
 
----
-
-## 🧪 Generate Dummy Data
-
-To populate the database with sample data:
-
-```bash
-python manage.py shell
-```
-
-```python
-from generate_dummy_data import run
-run()
-```
 
 ---
 
@@ -184,13 +177,6 @@ def early_bird_price(self):
 
 ---
 
-## 📚 Learning Purpose
-
-This project is part of a hands-on learning journey to understand how Django works in real-world scenarios, from database design to UI rendering. 
-
-I logged my steps in [Project_Steps.md](https://github.com/a7madmostafa/Peak-Performance-Club/blob/main/Project_Steps.md)
-
----
 
 ## 👨‍💻 Author
 
