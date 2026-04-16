@@ -82,7 +82,7 @@ def run():
         gc = GymClass.objects.create(
             name=random.choice(["Yoga", "Zumba", "CrossFit", "HIIT"]),
             trainer=random.choice(trainers),
-            start_date=datetime.now() + timedelta(days=random.randint(1, 30)),
+            start_date=datetime.now() + timedelta(days=random.randint(5, 50)),
             base_price=Decimal(random.randint(100, 1000))
         )
         classes.append(gc)
