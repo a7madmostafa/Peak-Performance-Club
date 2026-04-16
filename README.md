@@ -97,7 +97,7 @@ source venv/bin/activate
 ### 4. Install dependencies
 
 ```bash
-pip install django==6.0
+pip install django==6.0.4
 ```
 
 ### 5. Run migrations
