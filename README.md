@@ -101,13 +101,25 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-### 6. Create superuser
+### 6. Generate Dummy Data
+
+```bash
+python manage.py shell
+```
+Then, in the shell, run the following code:
+
+```python
+from generate_dummy_data import run
+run()
+```
+
+### 7. Create superuser to access the admin panel
 
 ```bash
 python manage.py createsuperuser
 ```
 
-### 7. Run the server
+### 8. Run the server
 
 ```bash
 python manage.py runserver
