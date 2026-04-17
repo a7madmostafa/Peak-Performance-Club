@@ -4,14 +4,7 @@ from .models import Branch, Member, Trainer, GymClass, Equipment
 # Create your views here.
 
 def home(request):
-    context = {
-        "branches": Branch.objects.all(),
-        "members": Member.objects.all(),
-        "trainers": Trainer.objects.all(),
-        "classes": GymClass.objects.all(),
-        "equipment": Equipment.objects.all(),
-    }
-    return render(request, "home.html", context)
+    return render(request, "home.html")
 
 def branches(request):
     context = {
