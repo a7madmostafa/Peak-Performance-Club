@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .models import Branch, Member, Trainer, GymClass, Equipment
+from django.db.models import Count
 
 # Create your views here.
 
@@ -25,10 +26,17 @@ def trainers(request):
     return render(request, "trainers.html", context)
 
 def classes(request):
+    base_qs = (
+                GymClass.objects
+                .select_related("trainer")
+                .prefetch_related("members")
+                .annotate(num_members=Count("members"))
+            )
+
     context = {
-        "classes": GymClass.objects.select_related("trainer").prefetch_related("members").all(),
-        "trending_classes": GymClass.objects.trending().select_related("trainer").prefetch_related("members").all(),    
-    }
+                "classes": base_qs,
+                "trending_classes": base_qs.trending(),
+            }
     return render(request, "classes.html", context)
 
 def equipments(request):
