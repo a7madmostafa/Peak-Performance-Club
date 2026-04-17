@@ -14,13 +14,13 @@ def branches(request):
 
 def members(request):
     context = {
-        "members": Member.objects.all(),
+        "members": Member.objects.select_related("branch").all(),
     }
     return render(request, "members.html", context)
 
 def trainers(request):
     context = {
-        "trainers": Trainer.objects.all(),
+        "trainers": Trainer.objects.select_related("branch").all(),
     }
     return render(request, "trainers.html", context)
 
