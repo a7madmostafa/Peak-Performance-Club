@@ -1,6 +1,7 @@
 from django.db import models
 from django.utils import timezone
 from datetime import timedelta
+from decimal import Decimal
 
 # Create your models here.
 
@@ -24,7 +25,7 @@ class Member(BaseModel):
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=20)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
-    balance = models.FloatField()
+    balance = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.name
@@ -60,14 +61,14 @@ class GymClass(BaseModel):
     name = models.CharField(max_length=100)
     trainer = models.ForeignKey(Trainer, on_delete=models.CASCADE)
     start_date = models.DateTimeField()
-    base_price = models.FloatField()
+    base_price = models.DecimalField(max_digits=10, decimal_places=2)
     members = models.ManyToManyField(Member, related_name='classes')
 
     objects = GymClassManager()
 
     def early_bird_price(self):
         if self.start_date > timezone.now() + timedelta(days=30):
-            return round(self.base_price * 0.8) # self.base_price * 0.8
+            return  self.base_price * Decimal('0.8')
         return self.base_price
     
     def __str__(self):
@@ -77,7 +78,7 @@ class Equipment(BaseModel):
     name = models.CharField(max_length=100)
     branch = models.ForeignKey(Branch, on_delete=models.CASCADE)
     purchase_date = models.DateField()
-    price = models.FloatField()
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     is_damaged = models.BooleanField(default=False)
 
     def __str__(self):
