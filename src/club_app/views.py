@@ -26,8 +26,8 @@ def trainers(request):
 
 def classes(request):
     context = {
-        "classes": GymClass.objects.all(),
-        "trending_classes": GymClass.objects.trending(),    
+        "classes": GymClass.objects.select_related("trainer").prefetch_related("members").all(),
+        "trending_classes": GymClass.objects.trending().select_related("trainer").prefetch_related("members").all(),    
     }
     return render(request, "classes.html", context)
 
